@@ -1,0 +1,41 @@
+docker ps -a
+docker-compose up --build
+docker exec -it db psql -U postgres
+docker exec laravelapp php artisan migrate
+
+
+
+Run the Laravel backend container:
+docker-compose up laravelapp --no-deps
+
+Run the React frontend container:
+docker-compose up frontend --no-deps
+
+Run the PostgreSQL database container:
+docker-compose up db --no-deps
+
+Run db and backend:
+docker-compose up laravelapp
+
+
+Running Containers Individually Using 
+
+Run laravel container:
+docker run -d --name laravelapp -p 8000:8000 laravelapp:1.0.0
+
+Run react container:
+docker run -d --name react-frontend -p 3000:3000 react-frontend:1.0.0
+
+Run Postgres container:
+docker run -d --name db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres:14
+
+
+Stopping a specific Service:
+docker-compose stop <laravelapp // service name>
+
+
+Stop and remove all containers, networks, and services:
+docker compose down -v
+
+Only stop all containers, networks and services:
+docker compose down
