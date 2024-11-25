@@ -19,6 +19,9 @@ When build success run migrations:
 To Check running images:
 1- 'docker ps -a'
 
+ backend running on: http://localhost:8000
+ 
+ frontend running on: http://localhost:3000/
 
 List of apis: ( collection is added for reference )
 
@@ -26,7 +29,7 @@ List of apis: ( collection is added for reference )
 
 1- Register -> 
 2- Login ->
-3- Get Users Register With ->
+3- Get Users Registered With ->
 
 **********TASK LIST **********
 1- Create Task List ->
