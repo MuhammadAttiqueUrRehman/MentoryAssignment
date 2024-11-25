@@ -1,41 +1,43 @@
-docker ps -a
-docker-compose up --build
-docker exec -it db psql -U postgres
-docker exec laravelapp php artisan migrate
+
+************************** Instructions To Run The Project ************************
+
+Clone: git clone git@github.com:MuhammadAttiqueUrRehman/MentoryAssignment
+
+Open Project directory and run command:
+
+1- 'cd frontend && npm i && cd ..'
+2- 'cd backend && composer install && cd ..'
 
 
+Once packages are installed run following command: 
 
-Run the Laravel backend container:
-docker-compose up laravelapp --no-deps
+1- 'docker compose up --build'
 
-Run the React frontend container:
-docker-compose up frontend --no-deps
+When build success run migrations:
+1- 'docker exec laravelapp php artisan migrate'
 
-Run the PostgreSQL database container:
-docker-compose up db --no-deps
-
-Run db and backend:
-docker-compose up laravelapp
+To Check running images:
+1- 'docker ps -a'
 
 
-Running Containers Individually Using 
+List of apis: ( collection is added for reference )
 
-Run laravel container:
-docker run -d --name laravelapp -p 8000:8000 laravelapp:1.0.0
+**********USER*******
 
-Run react container:
-docker run -d --name react-frontend -p 3000:3000 react-frontend:1.0.0
+1- Register -> 
+2- Login ->
+3- Get Users Register With ->
 
-Run Postgres container:
-docker run -d --name db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres:14
+**********TASK LIST **********
+1- Create Task List ->
+2- Delete Task List ->
+3- Get Task List ->
+4- Update Task List ->
+5- Get Shared Tasks List ->
+6- Updated Shared Task List ->
+7- Delete Shared Task List -> 
 
-
-Stopping a specific Service:
-docker-compose stop <laravelapp // service name>
-
-
-Stop and remove all containers, networks, and services:
-docker compose down -v
-
-Only stop all containers, networks and services:
-docker compose down
+**********TASK**********
+1- Create Task ->
+2- Update Task ->
+3- Delete Task ->
