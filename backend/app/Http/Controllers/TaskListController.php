@@ -62,7 +62,7 @@ class TaskListController extends Controller
         $task = Task::find($request->task_id);
         $task->task_list_id = null;
         $task->save();
-        return response()->json(['message' => 'Task Remove From Task List Successfully', 'data'=>$task]);
+        return response()->json(['message' => 'Task Removed From Task List Successfully', 'data'=>$task]);
     }
     
 
@@ -78,10 +78,18 @@ class TaskListController extends Controller
 
     
     
-    public function getSharedTaskLists(Request $request){
-        $tasks = SharedTaskList::where('shared_with', auth()->user()->id)->get()->toArray();
-        return response()->json(['message' => 'Tasks ', 'data'=>$tasks]);
+    public function getSharedTaskLists(Request $request) {
+        $sharedTasks = SharedTaskList::where('shared_with', auth()->user()->id)->get();
+        $taskListIds = $sharedTasks->pluck('task_list_id');
+        $taskLists = TaskList::whereIn('id', $taskListIds)->get();
+        return response()->json([
+            'message' => 'Tasks shared with you',
+            'sharedTasks' => $sharedTasks,
+            'taskLists' => $taskLists
+        ]);
     }
+    
+
     
     public function storeSharedTaskList(CreatedSharedTaskListRequest $request){
         $task = new SharedTaskList();
