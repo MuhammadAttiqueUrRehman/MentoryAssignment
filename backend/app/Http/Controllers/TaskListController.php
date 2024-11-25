@@ -90,7 +90,7 @@ class TaskListController extends Controller
         $task->permission = $request->permission;
         $task->save();
 
-        return response()->json(['message' => "sexfully shared", "data" => $task]);
+        return response()->json(['message' => "Successfully shared", "data" => $task]);
     }
 
     //create function to udpate shared task premission 
@@ -99,14 +99,14 @@ class TaskListController extends Controller
         $sharedTaskList = SharedTaskList::find($sharedTaskId);
         $sharedTaskList->permission = $request->permission;
         $sharedTaskList->save();
-        return response()->json(['message' => "sexfully updated", "data" => $sharedTaskList]);
+        return response()->json(['message' => "Successfully updated", "data" => $sharedTaskList]);
     }
 
     //create function to remove shared task
     public function deleteSharedTaskList($sharedTaskId){
         $sharedTaskList = SharedTaskList::find($sharedTaskId);
         $sharedTaskList->delete();
-        return response()->json(['message' => "sexfully deleted", "data" => $sharedTaskList]);
+        return response()->json(['message' => "Successfully deleted", "data" => $sharedTaskList]);
     }
 
 
