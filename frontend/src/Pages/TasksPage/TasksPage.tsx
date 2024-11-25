@@ -22,7 +22,7 @@ const TasksPage = (props: Props) => {
       title: "Shared With Me",
       description: "Explore tasks shared by others.",
       icon: "🔗",
-      action: () => alert("Navigating to Shared With Me"),
+      action: () => navigate("/shared-tasks"),
     },
   ];
 

@@ -81,13 +81,17 @@ class TaskListController extends Controller
     public function getSharedTaskLists(Request $request) {
         $sharedTasks = SharedTaskList::where('shared_with', auth()->user()->id)->get();
         $taskListIds = $sharedTasks->pluck('task_list_id');
-        $taskLists = TaskList::whereIn('id', $taskListIds)->get();
+        $taskLists = TaskList::whereIn('id', $taskListIds)
+            ->with('tasks') 
+            ->get();
+    
         return response()->json([
             'message' => 'Tasks shared with you',
-            'sharedTasks' => $sharedTasks,
+            'data' => $sharedTasks,
             'taskLists' => $taskLists
         ]);
     }
+    
     
 
     
