@@ -7,7 +7,7 @@ const TasksPage = (props: Props) => {
   const navigate = useNavigate();
   const tiles = [
     {
-      title: "Create Task",
+      title: "Create Task List",
       description: "Start a new task and track progress.",
       icon: "📝",
       action: () => navigate("/create-task"),

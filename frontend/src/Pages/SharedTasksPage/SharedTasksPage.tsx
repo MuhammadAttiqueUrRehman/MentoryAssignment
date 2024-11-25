@@ -128,12 +128,6 @@ const SharedTasksPage = () => {
                               <span className="text-xs text-gray-400">
                                 Created at: {new Date(task.created_at).toLocaleString()}
                               </span>
-
-                              {/* Share Button */}
-                              <button className="flex items-center text-blue-500 hover:text-blue-700">
-                                <FaShareAlt className="mr-1" />
-                                Share
-                              </button>
                             </div>
                           </div>
                         ))
